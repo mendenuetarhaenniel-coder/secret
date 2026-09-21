@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+</head>
+
+<style>
+	.loginBox{
+		width: 300px;
+		margin: 100px auto;
+		padding: 20px;
+
+		border: 1px solid #ccc;
+		border-radius: 8px;
+
+		font-family: "Segoe UI", serif;
+	}
+
+	.loginBox label{
+		display: block;
+		margin-bottom: 5px;
+	}
+
+
+	.loginBox input{
+		width: 93%;
+		padding: 8px;
+		margin-bottom: 15px;
+	}
+
+	.loginBox button{
+		width: 100%;
+		padding: 8px;
+		background-color: #3b5bfd;
+		color: white;
+		border: none;
+		margin-bottom: 15px;
+		transition: 0.2s ease;
+	}
+
+	.loginBox button:hover{
+		background-color: #2a45d1;
+	}
+
+	a{
+		color: blue;
+	}
+
+	#error{
+		margin-bottom: 15px;
+	}
+
+</style>
+
+<body>
+	<div class="loginBox">
+	<h2>Log in</h2>
+	<label for="email">Email</label>
+	<input type="email" id="email" name="email">
+
+	<label for="password">Password</label>
+	<input type="password" id="password" name="password">
+
+	<button type="button" id="login">Log in</button>
+
+	<p id="error"></p>	
+
+	<a href="review4.html" id="forgot"></a>
+
+	<a href="review3.html">Don't have an account?</a>
+	</div>
+</body>
+
+<script>
+	var emailInput = document.getElementById('email');
+	var passInput = document.getElementById('password');
+	var btn = document.getElementById('login');
+	var error = document.getElementById('error');
+	var forgotPass = document.getElementById('forgot')
+
+	btn.addEventListener('click', function btnLogin(){
+		var email = emailInput.value;
+		var pass = passInput.value;
+
+		if(email == "walangkaninbuseng@gmail.com" && pass == "12345678"){
+			window.location.href = "review2.html"
+		}else if(email == "" && pass == "") {
+			error.textContent = "Invalid input";
+		}else{
+			forgotPass.textContent = "Forgot password?"
+			error.textContent = "Incorrect email or password";
+		}
+
+		emailInput.value = "";
+		passInput.value = "";
+	});
+
+</script>
+</html>
